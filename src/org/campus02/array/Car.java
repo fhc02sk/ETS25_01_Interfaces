@@ -1,9 +1,23 @@
 package org.campus02.array;
 
-public class Car {
+public class Car implements Sortable<Car> {
     private int productionYear;
     private String carType;
     private int drivenKilometer;
+
+
+    @Override
+    public int sort(Car s) {
+        if (this.getDrivenKilometer() == s.getDrivenKilometer()) {
+            return 0;
+        }
+        if (this.getDrivenKilometer() < s.getDrivenKilometer()) {
+            return -1;
+        }
+        else {
+            return 1;
+        }
+    }
 
     @Override
     public String toString() {
@@ -43,4 +57,5 @@ public class Car {
     public void setDrivenKilometer(int drivenKilometer) {
         this.drivenKilometer = drivenKilometer;
     }
+
 }
